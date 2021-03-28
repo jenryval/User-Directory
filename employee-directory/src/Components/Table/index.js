@@ -1,12 +1,19 @@
 import React, {Component} from 'react'
+import API from '../../utils/API'
 
 
 class Table extends Component {
     state = {
     }
-    render(){
-      
-        return (
+
+    componentDidMount (){
+      API.RandomEmployee()
+      .then(response => this.setState(response))
+      .catch(err => console.log(err))
+      }
+
+    render() {
+      return (
           <table className="table">
             <thead>
               <tr>
