@@ -13,9 +13,9 @@ class Table extends Component {
       .then( Response => this.setState({'employees': Response.data.results}))
       .catch(err => console.log(err))
       }
-
     render() {
       return (
+        <div className='table-responsive{-sm}'>
           <table className="table">
             <thead>
               <tr>
@@ -45,6 +45,7 @@ class Table extends Component {
             <tbody>
             </tbody>
           </table>
+          </div>
         );
     }
 }

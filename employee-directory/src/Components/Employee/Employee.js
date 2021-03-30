@@ -3,7 +3,7 @@ import React from 'react'
 function Employee(props) {
     return (
     <tr>
-        <th scope="row">1</th>
+        <th scope="row">{props.employeeKey}</th>
         <td><img alt={props.firstName} src={props.image} /></td>
         <td>{props.firstName}</td>
         <td>{props.lastName}</td>
