@@ -38,11 +38,5 @@
 
 }
 
-.table-responsive{
-  @media screen and (max-width: 767px) {
-    .table-responsive{
-      font-size:50%
-    }
-  }
-}
+
 

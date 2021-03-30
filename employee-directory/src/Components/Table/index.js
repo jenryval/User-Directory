@@ -5,6 +5,7 @@ import './Table.css'
 
 
 
+
 class Table extends Component {
     state = {
       employees: []
@@ -15,6 +16,7 @@ class Table extends Component {
       .then( Response => this.setState({'employees': Response.data.results}))
       .catch(err => console.log(err))
       }
+      
     render() {
       return (
           <table className="table">
