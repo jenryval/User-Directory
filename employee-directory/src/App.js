@@ -10,8 +10,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Wrapper>
+        <div className='table-responsive'>
           <Table />
-          
+          </div>
         </Wrapper>
       </header>
     </div>

@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import Employee from '../Employee/employee'
 import API from '../../utils/API'
+import './Table.css'
+
 
 
 class Table extends Component {
@@ -15,7 +17,6 @@ class Table extends Component {
       }
     render() {
       return (
-        <div className='table-responsive{-sm}'>
           <table className="table">
             <thead>
               <tr>
@@ -45,7 +46,6 @@ class Table extends Component {
             <tbody>
             </tbody>
           </table>
-          </div>
         );
     }
 }
