@@ -1,14 +1,16 @@
 import React, {Component} from 'react'
+import Employee from '../Employee/employee'
 import API from '../../utils/API'
 
 
 class Table extends Component {
     state = {
+      employees: []
     }
 
     componentDidMount (){
       API.RandomEmployee()
-      .then(response => this.setState(response))
+      .then( Response => this.setState({'employees': Response.data.results}))
       .catch(err => console.log(err))
       }
 
@@ -18,29 +20,29 @@ class Table extends Component {
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">AVI</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">location</th>
               </tr>
             </thead>
+          {this.state.employees.map((employee, index) => {
+            return (
+              <Employee 
+              key={index}
+              employeeKey = {index + 1}
+              image={employee.picture.thumbnail}
+              firstName={employee.name.first}
+              lastName={employee.name.last}
+              email={employee.email}
+              phone={employee.phone}
+              location={employee.location.country}
+              />
+            )
+          })}
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Michael</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
             </tbody>
           </table>
         );

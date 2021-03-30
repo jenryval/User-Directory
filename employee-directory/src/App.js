@@ -11,6 +11,7 @@ function App() {
       <header className="App-header">
         <Wrapper>
           <Table />
+          
         </Wrapper>
       </header>
     </div>
