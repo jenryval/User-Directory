@@ -5,8 +5,6 @@ import FormControl from 'react-bootstrap/FormControl'
 
 function searchtable (props) {
     
-
-    
         return (
             <InputGroup className="mb-3">
                 <InputGroup.Prepend>

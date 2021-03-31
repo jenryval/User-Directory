@@ -6,12 +6,12 @@ import Search from './Components/Search/Search'
 
 class App extends Component {
   state = {
-    countrySearched: ''
+    search: ''
   }
 
   countrySearched = (country) => {
 
-    this.setState({"countrySearched": country})
+    this.setState({"search": country})
   }
 
   render() {
@@ -22,7 +22,7 @@ class App extends Component {
          countrySearched= {this.countrySearched} />
           <Wrapper>
           <div className='table-responsive'>
-          <Table countrySearched={this.countrySearched} />
+          <Table search={this.state.search} />
           </div>
           </Wrapper>
         </header>

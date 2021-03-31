@@ -4,18 +4,28 @@ import API from '../../utils/API'
 import './Table.css'
 
 
-
-
 class Table extends Component {
     state = {
-      employees: []
+      employees: [],
+      shownEmployees: []
     }
 
-    componentDidMount (){
+    componentDidMount () {
       API.RandomEmployee()
-      .then( Response => this.setState({'employees': Response.data.results}))
-      .catch(err => console.log(err))
-      }
+      .then(response => {
+          // console.log(this.props.search)
+          // this.updateEmployees(response.data.results)
+          this.setState({ "employees": response.data.results, "shownEmployees": response.data.results} )
+          // console.log(this.state.employees)
+      })
+      .catch(err => console.error(err))
+  }
+
+  updateEmployees() {
+    const filteredResults = this.state.employees.filter(employee => employee.location.country === this.props.search)
+    console.log(filteredResults)
+}
+
       
     render() {
       return (
@@ -31,7 +41,7 @@ class Table extends Component {
                 <th scope="col">location</th>
               </tr>
             </thead>
-          {this.state.employees.map((employee, index) => {
+          {this.state.shownEmployees.map((employee, index) => {
             return (
               <Employee 
               key={index}
