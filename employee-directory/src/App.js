@@ -3,6 +3,7 @@ import './App.css';
 import Wrapper from './Components/Wrapper'
 import Table from './Components/Table'
 import Search from './Components/Search/Search'
+import Header from './Components/Header/Header'
 
 class App extends Component {
   state = {
@@ -17,7 +18,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
+       <Header />
         <Search 
          countrySearched= {this.countrySearched} />
           <Wrapper>
@@ -25,7 +26,6 @@ class App extends Component {
           <Table search={this.state.search} />
           </div>
           </Wrapper>
-        </header>
       </div>
   );
 }}

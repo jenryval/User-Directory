@@ -1,0 +1,8 @@
+.tableHeader {
+    text-align: left;
+    color: black;
+}
+
+.hoverHand {
+    cursor: pointer
+}

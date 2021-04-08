@@ -6,6 +6,7 @@ import './Table.css'
 
 class Table extends Component {
     state = {
+      search: '',
       employees: [],
       shownEmployees: []
     }
@@ -21,11 +22,29 @@ class Table extends Component {
       .catch(err => console.error(err))
   }
 
-  updateEmployees() {
-    const filteredResults = this.state.employees.filter(employee => employee.location.country === this.props.search)
-    console.log(filteredResults)
+  countrySearched = (country) => {
+    this.setState({"search": country}, () => {
+      this.updateEmployees()
+    })
+  }
+
+  updateEmployees = () => {
+    const filteredResults = this.state.employees.filter(employee => employee.location.country === this.state.search)
+    if(filteredResults.length){
+        this.setState({"shownEmployees": filteredResults})
+    } else {
+      this.setState({"shownEmployees": this.state.employees })
+    }
 }
 
+sortByFirst = () => {
+  const sortByFirstName = this.state.shownEmployees.sort((a,b) => {
+    if(a.name.first < b.name.first) { return -1; }
+    if(a.name.first > b.name.first) { return 1; }
+    return 0;
+  })
+  this.setState({'shownEmployees': sortByFirstName})
+}
       
     render() {
       return (
