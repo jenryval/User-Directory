@@ -1,8 +1,9 @@
-import React from 'react'
+  import React from "react";
 
-function Employee(props) {
+
+function TableRow(props) {
     return (
-    <tr>
+    <tr className="tableRow">
         <th scope="row">{props.employeeKey}</th>
         <td><img alt={props.firstName} src={props.image} /></td>
         <td>{props.firstName}</td>
@@ -12,6 +13,7 @@ function Employee(props) {
         <td>{props.location}</td>
     </tr>
     )
+  
 }
 
-export default Employee;
+export default TableRow;
